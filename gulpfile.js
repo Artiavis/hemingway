@@ -2,18 +2,23 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 
-gulp.task("default", function () {
+const buildRelease = (cb) => {
   gulp.src('sass/style.sass')
+  .pipe(sass({outputStyle: 'compressed'}))
+  .pipe(autoprefixer())
+  .pipe(gulp.dest('static/css/'))
+  .on('end', () => cb());
+}
+
+const watch = () => {
+  gulp.watch('sass/style.sass', { ignoreInitial: false }, function(cb) {
+    gulp.src('sass/style.sass')
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(autoprefixer())
-    .pipe(gulp.dest('static/css/'));
-});
+    .pipe(gulp.dest('static/css/'))
+    .on('end', () => cb());
+  })
+}
 
-gulp.task("watch", function () {
-  gulp.watch('sass/style.sass', function() {
-    gulp.src('sass/style.sass')
-      .pipe(sass({outputStyle: 'compressed'}))
-      .pipe(autoprefixer())
-      .pipe(gulp.dest('static/css/'));
-  });
-});
+exports.default = buildRelease;
+exports.watch = watch;

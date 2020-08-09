@@ -15,7 +15,7 @@ $family-sans-serif: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hira
 
 .media-content
   .subtitle+.title
-    margin-bottom: 10px
+    margin-bottom: 0.75rem
   .content
     line-height: 1.5
 
@@ -27,6 +27,9 @@ html
 
 .section
   padding: 40px 20px
+
+.navbar-item img
+  max-height: unset
 
 .nav .level-item
   margin-left: 10px
@@ -47,16 +50,14 @@ code
   background-color: transparent
   font-size: 90%
 
-
-
 article+article
-  margin-top: 80px
+  margin-top: 2.5rem
 
 .content
   h1, h2, h3, h4, h5, h6
     line-height: 1.25
     &:not(:first-child)
-      margin-top: 80px
+      margin-top: 2rem
     &::before
       color: #aeb1b5
       font-weight: bold
@@ -67,29 +68,29 @@ article+article
   h3+h4:not(:first-child),
   h4+h5:not(:first-child),
   h5+h6:not(:first-child)
-    margin-top: 20px
+    margin-top: 1.5rem
   h1
-    font-size: 24px
+    font-size: 1.5rem
     &::before
       content: "# "
   h2
-    font-size: 22px
+    font-size: 1.4rem
     &::before
       content: "## "
   h3
-    font-size: 20px
+    font-size: 1.25rem
     &::before
       content: "### "
   h4
-    font-size: 18px
+    font-size: 1.1rem
     &::before
       content: "#### "
   h5
-    font-size: 17px
+    font-size: 1.05rem
     &::before
       content: "##### "
   h6
-    font-size: 16px
+    font-size: 1rem
     &::before
       content: "###### "
   p,
@@ -98,12 +99,11 @@ article+article
   pre,
   table
     &:not(:last-child)
-      margin-bottom: 1.5em
+      margin-bottom: 1.5rem
   table
     td,
     th
-      border: 1px solid #d3d6db
-      padding: 8px 10px
+      padding: 0.5rem 0.5rem
       vertical-align: top
   & > code, p > code
     font-size: 90%
@@ -113,12 +113,18 @@ article+article
     border-radius: 4px
     background-color: #f8f8f8
     color: #42464c
-  pre
-    code
-      font-size: 90%
-      padding: 1em
-      line-height: 1.5
   li
     pre,
     table
-      margin-bottom: 1.5em
+      margin-bottom: 1.5rem
+  blockquote
+    ol, ul
+      &:only-child
+        margin-top: unset
+        margin-bottom: unset
+  a.button
+    height: 2rem
+    span.icon
+      &:last-child
+        margin-left: calc(0.5rem - 1px)
+        margin-right: calc(0.5rem - 1px)
